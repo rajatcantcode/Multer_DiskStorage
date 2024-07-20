@@ -33,7 +33,10 @@ app.get("/", (req, res) => {
 });
 
 const upload = require("./middlewares/multer.middlewares");
-app.post("/upload", upload.single("image"), function (req, res, next) {
-  console.log(req.file);
-  res.send(`File uploaded successfully`);
+app.post("/upload", upload.single("image"), async function (req, res, next) {
+  const user = await userModel.create({
+    name: req.file.originalname,
+    image: req.file.filename,
+  });
+  res.send(`File uploaded successfully ${user}`);
 });
