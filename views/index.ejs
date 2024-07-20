@@ -1,0 +1,24 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body class="h-screen w-screen bg-zinc-900 flex items-center justify-center text-white">
+    <div class="p-6 border-2 border-white">
+        <h1 class="font-mono italic text-red-400">Form To Upload files</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="flex flex-col gap-4 ">
+            <input type="file" name="image" class="border-2 border-white p-2" />
+            <button type="submit" class="p-2 border-2 border-green-300 rounded-lg">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
